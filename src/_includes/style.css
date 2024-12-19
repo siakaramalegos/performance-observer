@@ -1,0 +1,255 @@
+:root {
+  /* COLORS */
+  --newsprint: #E1DFDD;
+  --red: hsl(11, 100%, 33%);
+  --charcoal: #333;
+  --purple: rgb(130,0,183);
+  --default-color: var(--charcoal);
+  --primary-color: var(--red);
+
+  /* TYPOGRAPHY SCALES */
+  /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,6,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --step--1: clamp(0.8333rem, 0.7754rem + 0.2899vw, 1rem);
+  --step-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+  --step-1: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem);
+  --step-2: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem);
+  --step-3: clamp(1.728rem, 1.4799rem + 1.2407vw, 2.4414rem);
+  --step-4: clamp(2.0736rem, 1.7334rem + 1.7011vw, 3.0518rem);
+  --step-5: clamp(2.4883rem, 2.027rem + 2.3067vw, 3.8147rem);
+  --step-6: clamp(2.986rem, 2.366rem + 3.0998vw, 4.7684rem);
+
+  /* SPACE SCALES */
+  /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,20,1.25,6,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vw, 0.3125rem);
+  --space-2xs: clamp(0.5rem, 0.4565rem + 0.2174vw, 0.625rem);
+  --space-xs: clamp(0.75rem, 0.6848rem + 0.3261vw, 0.9375rem);
+  --space-s: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+  --space-m: clamp(1.5rem, 1.3696rem + 0.6522vw, 1.875rem);
+  --space-l: clamp(2rem, 1.8261rem + 0.8696vw, 2.5rem);
+  --space-xl: clamp(3rem, 2.7391rem + 1.3043vw, 3.75rem);
+  --space-2xl: clamp(4rem, 3.6522rem + 1.7391vw, 5rem);
+  --space-3xl: clamp(6rem, 5.4783rem + 2.6087vw, 7.5rem);
+
+  /* One-up pairs: introduce more dramatic space variance between different viewport sizes */
+  --space-3xs-2xs: clamp(0.25rem, 0.1196rem + 0.6522vw, 0.625rem);
+  --space-2xs-xs: clamp(0.5rem, 0.3478rem + 0.7609vw, 0.9375rem);
+  --space-xs-s: clamp(0.75rem, 0.5761rem + 0.8696vw, 1.25rem);
+  --space-s-m: clamp(1rem, 0.6957rem + 1.5217vw, 1.875rem);
+  --space-m-l: clamp(1.5rem, 1.1522rem + 1.7391vw, 2.5rem);
+  --space-l-xl: clamp(2rem, 1.3913rem + 3.0435vw, 3.75rem);
+  --space-xl-2xl: clamp(3rem, 2.3043rem + 3.4783vw, 5rem);
+  --space-2xl-3xl: clamp(4rem, 2.7826rem + 6.087vw, 7.5rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(1rem, 0.4783rem + 2.6087vw, 2.5rem);
+
+  /* FLUID GRID */
+  /* @link https://utopia.fyi/grid/calculator?c=320,16,1.2,1240,20,1.25,6,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --grid-max-width: 77.50rem;
+  --grid-gutter: var(--space-s-l, clamp(1rem, 0.4783rem + 2.6087vw, 2.5rem));
+  --grid-columns: 12;
+}
+
+/* RESET */
+*, *::before, *::after { box-sizing: border-box;} html {-moz-text-size-adjust: none;-webkit-text-size-adjust: none;text-size-adjust: none;}body{min-height: 100vh;line-height: 1.5;}body, h1, h2, h3, h4, p,figure, blockquote, dl, dd {margin-block-end: 0;}h1, h2, h3, h4,button, input, label {line-height: 1.1;}p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}h1, h2, h3, h4, h5, h6 {text-wrap: balance;}img, picture, video, canvas, svg {display: block;max-width: 100%;} img {height: auto;}input, button, textarea, select {font: inherit;font-size: inherit;} ul[role='list'],ol[role='list'] {list-style: none;padding: 0;}
+
+body {
+  background: var(--newsprint);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  color: var(--default-color);
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--step-0);
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "League Gothic", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+p {
+  max-width: 65ch;
+}
+p { font-size: var(--step-0); }
+small {font-size: var(--step--1);}
+.lead {
+  font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+  font-size: var(--step-1);
+  /* font-style: italic; */
+}
+.date {
+  font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+  text-transform: uppercase;
+}
+h1 { font-size: var(--step-6); }
+h2 { font-size: var(--step-4); }
+h3 { font-size: var(--step-3); }
+h4 { font-size: var(--step-2); }
+:focus {
+  outline: 2px dashed var(--purple);
+  outline-offset: .25rem;
+}
+figure { margin: 0; }
+figcaption {font-size: var(--step--1);}
+
+a:not([class]) {
+  color: currentColor;
+}
+a {
+  color: var(--primary-color);
+}
+a.button {
+  background: var(--charcoal);
+  box-shadow: 0 3px 6px rgba(0,0,0,.15),0 2px 4px rgba(0,0,0,.12);
+  color: #FFF;
+  padding: 4px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+a:has(svg) {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.u-container {
+  width: 100%;
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+.u-container > * + * { margin-top: var(--flow-space, 1em);}
+.u-grid {
+  display: grid;
+  gap: var(--grid-gutter);
+}
+.u-caps {
+  text-transform: uppercase;
+}
+
+.image-with-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--grid-gutter);
+}
+.image-with-text img {
+  width: 200px;
+}
+.image-with-text div {
+  max-width: 55ch;
+}
+.image-with-text div :first-child {
+  margin-top: 0;
+}
+
+/* NAV */
+header {
+  border-bottom: 1px solid var(--charcoal);
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: "League Gothic", sans-serif;
+  text-transform: uppercase;
+}
+nav img {
+  margin-right: var(--grid-gutter);
+  width: 150px;
+}
+nav h1 {margin: 0;}
+nav ul {
+  display: flex;
+  font-size: var(--step--1);
+  gap: var(--grid-gutter);
+}
+nav a {
+  border-block-end: 3px solid var(--border-color, transparent);
+  color: var(--default-color);
+  text-decoration: none;
+}
+nav a[aria-current="page"] {
+  color: var(--primary-color);
+  --border-color: var(--primary-color);
+}
+
+.title-img {
+  width: 200px;
+}
+
+footer {
+  background: var(--charcoal);
+  color: #FFF;
+  margin-top: var(--grid-gutter);
+  padding-bottom: var(--grid-gutter);
+}
+footer .u-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--grid-gutter);
+  margin-top: var(--grid-gutter);
+}
+[data-lastpass-icon-root] {
+  display: none;
+}
+footer ul {
+  font-size: var(--step--1);
+  margin: 0;
+}
+footer li {
+  padding-bottom: 6px;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+}
+footer form {
+  font-size: var(--step--1);
+}
+footer label {
+  display: block;
+  padding-bottom: 4px;
+}
+input {
+  border: 1px solid var(--charcoal);
+  padding: 4px;
+}
+input[type="submit"], button {
+  background-color: var(--charcoal);
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,.15),0 2px 4px rgba(0,0,0,.12);
+  cursor: pointer;
+  font-family: var(--font-display);
+  padding: 4px 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+input[name="bot-field"] {display: none;}
+label {
+  font-weight: 700;
+}
+footer input[type="submit"] {
+  background-color: #FFF;
+  color: var(--charcoal);
+}
+
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--grid-gutter);
+}

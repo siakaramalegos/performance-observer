@@ -1,0 +1,22 @@
+{
+  "name": "performance-observer",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "NODE_ENV=development npx @11ty/eleventy --serve",
+    "build": "NODE_ENV=production npx @11ty/eleventy",
+    "watch": "NODE_ENV=development npx @11ty/eleventy --watch",
+    "debug": "DEBUG=* NODE_ENV=development npx @11ty/eleventy"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Sia Karamalegos",
+    "email": "siakaramalegos@gmail.com",
+    "url": "https://sia.codes/"
+  },
+  "license": "ISC",
+  "description": "Website for the virtual web performance meetup",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "clean-css": "^5.3.3"
+  }
+}
