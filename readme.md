@@ -9,7 +9,6 @@ TODO
 - check accessibility
 - fix title and description tags
 - check technical seo
-- add newsletter and signup form
 - change contact page to email or just put contact in footer
 - add youtube, newsletter, other? links to footer
 - add events page, then individual talk pages (not events like 11ty meetup? - decide on this - could eventually add speaker pages)
@@ -17,6 +16,5 @@ TODO
 - make sure code of conduct page emails work
 - add cfp instructions
 - create social accounts?
-- add favicons
 - add social share images
 - modify organizers content to use speaker content stuff (image, styles, links)
