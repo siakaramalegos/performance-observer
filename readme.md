@@ -19,3 +19,4 @@ TODO
 - create social accounts?
 - add favicons
 - add social share images
+- modify organizers content to use speaker content stuff (image, styles, links)

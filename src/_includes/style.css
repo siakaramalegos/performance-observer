@@ -2,10 +2,16 @@
   /* COLORS */
   --newsprint: #e7e6e4;
   --red: hsl(11, 100%, 33%);
+  --yellow: #fdd000;
   --charcoal: #333;
   --purple: rgb(130,0,183);
   --default-color: var(--charcoal);
   --primary-color: var(--red);
+
+  /* FONTS */
+  --font-display: "League Gothic", serif;
+  --font-body: "Cormorant Garamond", serif;
+  --font-byline: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 
   /* TYPOGRAPHY SCALES */
   /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,6,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
@@ -59,13 +65,13 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   color: var(--default-color);
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-body);
   font-size: var(--step-0);
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, .header-title .h1 {
-  font-family: "League Gothic", serif;
+h1, h2, h3, h4, h5, h6, .h1 {
+  font-family: var(--font-display), serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -77,11 +83,11 @@ p {
 p { font-size: var(--step-0); }
 small {font-size: var(--step--1);}
 .lead {
-  font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+  font-family: var(--font-byline);
   font-size: var(--step-1);
 }
 .byline {
-  font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+  font-family: var(--font-byline);
   font-size: var(--step-0);
   text-transform: uppercase;
 }
@@ -224,10 +230,14 @@ nav ul {
 nav a {
   color: var(--default-color);
   padding: 6px;
+  text-decoration: none;
 }
 nav a[aria-current="page"] {
-  color: var(--primary-color);
-  --border-color: var(--primary-color);
+  border-bottom: 1px solid var(--yellow);
+  box-shadow: var(--yellow) 0 -2px 0 0 inset;
+}
+nav a:hover {
+  background: var(--yellow);
 }
 
 .title-img {
@@ -248,9 +258,12 @@ footer .u-flex {
 [data-lastpass-icon-root] {
   display: none;
 }
+footer .h1 {
+  font-size: var(--step-2);
+  margin-top: 0;
+}
 footer ul {
   font-size: var(--step--1);
-  margin: 0;
 }
 footer li {
   padding-bottom: 6px;
@@ -260,7 +273,7 @@ footer li {
 form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   max-width: 400px;
 }
 footer form {
@@ -282,6 +295,7 @@ input[type="submit"], button {
   box-shadow: 0 3px 6px rgba(0,0,0,.15),0 2px 4px rgba(0,0,0,.12);
   cursor: pointer;
   font-family: var(--font-display);
+  font-size: var(--step-0);
   padding: 4px 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -291,7 +305,7 @@ label {
   font-weight: 700;
 }
 footer input[type="submit"] {
-  background-color: #FFF;
+  background-color: var(--yellow);
   color: var(--charcoal);
 }
 
