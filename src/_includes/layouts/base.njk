@@ -41,12 +41,27 @@
   </head>
   <body>
     <header class="u-container">
+      <div class="header-title">
+        <img src="/images/logo.svg" height="50" width="50" alt="" fetchpriority="high">
+        {% if page.url == '/' %}
+          <h1>
+            <a href="/">
+              PerformanceObserver
+            </a>
+          </h1>
+        {% else %}
+          <p class="h1"><a href="/">
+            PerformanceObserver
+          </a></p>
+        {% endif %}
+        <p>A virtual meetup for the web performance community</p>
+      </div>
       <nav>
         <ul role="list">
           <li><a aria-current="{% if page.url == '/' %}page{% else %}false{% endif %}" href="/">Home</a></li>
           <li><a aria-current="{% if page.url == '/events/' %}page{% else %}false{% endif %}" href="/events/">Events</a></li>
-          <li><a aria-current="{% if page.url == '/about/' %}page{% else %}false{% endif %}" href="/about/">About</a></li>
           <li><a aria-current="{% if page.url == '/contact/' %}page{% else %}false{% endif %}" href="/contact/">Contact</a></li>
+          <li><a aria-current="{% if page.url == '/codeofconduct/' %}page{% else %}false{% endif %}" href="/codeofconduct/">Code of Conduct</a></li>
         </ul>
       </nav>
     </header>
@@ -61,7 +76,6 @@
           <ul role="list">
             <li><a href="/">Home</a></li>
             <li><a href="/events/">Events</a></li>
-            <li><a href="/about/">About</a></li>
             <li><a href="/contact/">Contact</a></li>
             <!-- <li>
               <a href="https://www.instagram.com/sia.karamalegos/">
@@ -82,7 +96,6 @@
             <input type="submit" value="Subscribe">
           </form> -->
         </div>
-        <p><small>&copy; {% copyright %} Sia Karamalegos</p>
       </div>
     </footer>
   </body>

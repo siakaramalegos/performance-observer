@@ -1,6 +1,6 @@
 module.exports = {
   copyright: () => {
-    const establishedYear = 2024
+    const establishedYear = 2025
     const currentYear = new Date().getFullYear()
 
     if (establishedYear !== currentYear) {
