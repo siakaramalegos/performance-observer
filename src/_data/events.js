@@ -1,6 +1,7 @@
-const fetchAPI = require("../utils/storyblok.js");
+const fetchAPI = require("../_11ty/storyblok");
 
 module.exports = async function getEvents () {
+  fetchAPI
   const data = await fetchAPI(`
   {
     EventItems {
@@ -18,7 +19,7 @@ module.exports = async function getEvents () {
         }
       }
     }
-  }  
+  }
   `);
   return data?.EventItems.items;
 }

@@ -1,5 +1,4 @@
-const fetchAPI = require("../utils/storyblok.js");
-
+const fetchAPI = require("../_11ty/storyblok");
 
 module.exports = async function getPeople () {
   const data = await fetchAPI(`

@@ -18,5 +18,8 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "clean-css": "^5.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
 }

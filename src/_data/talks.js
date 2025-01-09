@@ -1,5 +1,4 @@
-const fetchAPI = require("../utils/storyblok.js");
-
+const fetchAPI = require("../_11ty/storyblok");
 
 module.exports = async function getTalks () {
   const data = await fetchAPI(`
@@ -18,7 +17,7 @@ module.exports = async function getTalks () {
         }
       }
     }
-  }  
+  }
   `);
   return data?.TalkItems.items;
 }
