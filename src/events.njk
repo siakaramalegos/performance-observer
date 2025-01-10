@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+title: Events | PerformanceObserver
+description: See upcoming and past virtual meetup events for the PerformanceObserver web performance meetup.
+---
+
+<h1>Events</h1>
+
+<h2>Upcoming Events</h2>
+{% set upcomingEvents = events | upcomingEvents %}
+{% if upcomingEvents and upcomingEvents.length > 0 %}
+  {% for event in upcomingEvents %}
+    {% include 'upcomingEvent.njk' %}
+  {% endfor %}
+{% else %}
+  <p>Stay tuned for the next event announcement!</p>
+{% endif %}
+
+{% set oldEvents = events | pastEvents %}
+{% if oldEvents and oldEvents.length > 0 %}
+  <h2>Past Events</h2>
+  {% for event in oldEvents %}
+    {% include 'event.njk' %}
+  {% endfor %}
+{% endif %}
