@@ -1,4 +1,8 @@
 const CleanCSS = require('clean-css');
+const markdownIt = require("markdown-it");
+const md = new markdownIt({
+  html: true,
+});
 
 const upcomingEvents = (events) => {
   return events.filter(event => {
@@ -15,6 +19,9 @@ module.exports = {
     console.log(speakers);
 
     return speakers.map(speaker => speaker.content.name).join(' and ')
+  },
+  markdown: content => {
+    return md.render(content);
   },
   nextEvent: events => {
     const filteredEvents = upcomingEvents(events)

@@ -1,12 +1,55 @@
 {% set dateTime = event.content.start_time %}
 
 <article class="event flow">
-  <h2>{{ event.content.title }}</h2>
+  <h3>{{ event.content.title }}</h3>
   <p class="date"><time datetime="{{dateTime}}">{{dateTime | readableDateTime}}</time></p>
   <p>{{ event.content.overview | safe }}</p>
-  <ul>
+  <div class="talk-cards">
     {% for talk in event.talks %}
-      <li><strong>{{ talk.content.title }}</strong> by {{ talk.speakers | joinSpeakerNames }}: {{ talk.content.description }}</li>
+      <article>
+        <div class="talk-card">
+          <h4>{{ talk.content.title }}</h4>
+          {{ talk.content.description | markdown | safe }}
+        </div>
+
+        {% for speaker in talk.speakers %}
+          <div class="person-card">
+            <div class="person-headline">
+              <img class="headshot" src="{{ speaker.content.headshot.filename }}/m/240x240" width="120" height="120" alt="">
+              <div>
+                <p class="speaker-name">{{ speaker.content.name }} <span>{% if speaker.content.pronouns %}({{ speaker.content.pronouns }}){% endif %}</span></p>
+                <p class="person-social">
+                  {% if speaker.content.website %}
+                  <a rel="nofollow" href="{{ speaker.content.website }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="16" aria-hidden="true" role="img"><path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg>
+                    Website
+                  </a>
+                  {% endif %}
+                  {% if speaker.content.mastodon %}
+                    <a rel="nofollow" href="{{ speaker.content.mastodon }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="16" aria-hidden="true" role="img"><path fill="currentColor" d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg>
+                      Mastodon
+                    </a>
+                  {% endif %}
+                  {% if speaker.content.bluesky %}
+                    <a rel="nofollow" href="{{ speaker.content.bluesky }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="16" aria-hidden="true" role="img"><path fill="currentColor" d="M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.5-8.9 130.5-14.1 149.2C478.2 298 412 314.6 353.1 304.5c102.9 17.5 129.1 75.5 72.5 133.5c-107.4 110.2-154.3-27.6-166.3-62.9l0 0c-1.7-4.9-2.6-7.8-3.3-7.8s-1.6 3-3.3 7.8l0 0c-12 35.3-59 173.1-166.3 62.9c-56.5-58-30.4-116 72.5-133.5C100 314.6 33.8 298 15.7 233.1C10.4 214.4 1.5 99.4 1.5 83.9c0-77.8 68.2-53.4 110.3-21.8z"/></svg>
+                      BlueSky
+                    </a>
+                  {% endif %}
+                  {% if speaker.content.linkedin %}
+                    <a rel="nofollow" href="{{ speaker.content.linkedin }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="16" aria-hidden="true" role="img"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+                      LinkedIn
+                    </a>
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+            {{ speaker.content.short_bio | markdown | safe }}
+          </div>
+        {% endfor %}
+      </article>
     {% endfor %}
-  </ul>
+  </div>
 </article>

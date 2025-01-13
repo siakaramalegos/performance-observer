@@ -17,7 +17,8 @@
   "description": "Website for the virtual web performance meetup",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "clean-css": "^5.3.3"
+    "clean-css": "^5.3.3",
+    "markdown-it": "^14.1.0"
   },
   "dependencies": {
     "dotenv": "^16.4.7"

@@ -97,7 +97,7 @@ small {font-size: var(--step--1);}
 }
 .heading-group .byline {margin-top: 0;}
 .date {
-  font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+  font-family: var(--font-byline);
   text-transform: uppercase;
 }
 h1, .header-title .h1 { font-size: var(--step-6); }
@@ -340,4 +340,58 @@ main:has(aside) {
   section {
     padding-right: 12px;
   }
+}
+
+/* event and talk and person */
+.event {
+  border: 1px solid var(--charcoal);
+  padding: var(--grid-gutter);
+  margin: var(--grid-gutter) 0;
+}
+.event h3 {
+  margin-top: 0;
+}
+.talk-cards {
+  border-top: 1px solid var(--charcoal);
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  gap: var(--grid-gutter);
+}
+.person-headline {
+  display: grid;
+  gap: 1.5em;
+  grid-template-columns: auto 1fr;
+  margin-top: var(--grid-gutter);
+}
+.speaker-name {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  margin-top: 0;
+}
+.person-card img {
+  filter: grayscale(60%);
+  border: 1px solid var(--charcoal);
+  border-radius: 50%;
+  width: 100px; /* fallback */
+  width: min(100px, 20vw);
+}
+.person-card img:hover {
+  filter: none;
+}
+.person-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-byline);
+  font-size: var(--step--1);
+  line-height: 1;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+.person-social a {
+  border-bottom: 1px solid var(--yellow);
+  box-shadow: var(--yellow) 0 -2px 0 0 inset;
+}
+.person-social a:hover {
+  background: var(--yellow);
 }
