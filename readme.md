@@ -9,7 +9,7 @@ TODO
 - [ ] check accessibility
 - [ ] fix title and description tags
 - [ ] check technical seo
-- [ ] change contact page to email or just put contact in footer
+- [ ] change contact page to email or just put contact in footer or wire up form
 - [ ] add youtube, newsletter, other? links to footer
 - [ ] add events page, then individual talk pages (not events like 11ty meetup? - decide on this - could eventually add speaker pages)
 - [ ] add cfp instructions

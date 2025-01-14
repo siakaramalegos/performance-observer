@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.njk
-title: Code of Conduct | PerformanceObserver
+title: Code of Conduct
 description: Join the PerformanceObserver virtual performance meetup to get all the latest web performance news and hang out with the community.
 ---
 
