@@ -40,6 +40,6 @@ module.exports = {
       }
     })
 
-    return mungedEvents.toSorted((a, b) => b.startTimeUTC - a.startTimeUTC)
+    return mungedEvents.sort((a, b) => b.startTimeUTC - a.startTimeUTC)
 	},
 };
