@@ -16,6 +16,22 @@ renderData:
   {% else %}
     <p>Stay tuned for the next event announcement!</p>
   {% endif %}
+
+  <h2 class="h1 border-double-top">Don't miss an event!</h2>
+  <div class="coffee-container">
+    <p>Sign up for our newsletter to get event announcements:</p>
+    <form id="news-signup"
+      action="https://buttondown.com/api/emails/embed-subscribe/performanceobserver"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.com/performanceobserver', 'popupwindow')"
+      class="embeddable-buttondown-form"
+    >
+      <label for="bd-email">Email address</label>
+      <input type="email" name="email" id="bd-email" placeholder="you@gmail.com">
+      <input type="submit" value="Subscribe">
+    </form>
+  </div>
 </section>
 
 <aside>
@@ -24,7 +40,7 @@ renderData:
   <p>PerformanceObserver is a virtual meetup for the web performance community.</p>
   <p>Our community is spread out around the world, and not everyone can easily access in-person tech events. Thus, our mission was to create a meetup that is more accessible to the broader community.</p>
   <h3>How do I register?</h3>
-  <p>You don't! We simplified the idea of the meetup since we weren't interested in collecting registration data. Instead, we share the zoom link via the calendar event which is available on this website and in emails from our newsletter.</p>
+  <p>You don't! We simplified the idea of the meetup since we weren't interested in collecting registration data. Instead, we share the zoom link via the calendar event which is available on this website and in emails from our <a href="#news-signup">newsletter</a>.</p>
   <h3>About the organizers</h3>
   <p><strong>Estela Franco</strong> is a Web Performance and Technical SEO Specialist. She works as a Web Performance Technical Architect at Shopify and is a Google Developer Expert in Web Technologies and Storyblok Ambassador.</p>
   <p><strong>Sia Karamalegos</strong> is a freelance web developer and performance engineer. She's also an international conference speaker, writer, and Google Developer Expert in Web Technologies. She co-organizes PerformanceObserver as well as the Eleventy Meetup.</p>

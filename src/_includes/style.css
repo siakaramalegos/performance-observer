@@ -310,20 +310,33 @@ footer {
 footer .u-flex {
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: var(--grid-gutter);
 }
 [data-lastpass-icon-root] {
   display: none;
 }
 footer .h1 {
   font-size: var(--step-2);
-  margin-top: 0;
 }
 footer ul {
   font-size: var(--step--1);
 }
 footer li {
   padding-bottom: 6px;
+}
+.coffee-container {
+  padding-bottom: 100px;
+  position: relative;
+}
+.coffee-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/images/coffee-ring-2.png') right bottom / 200px no-repeat;
+  filter: opacity(20%);
+}
+.border-double-top {
+  border-top: 3px double var(--charcoal);
+  padding-top: var(--grid-gutter);
 }
 
 /* FORM */
@@ -333,6 +346,7 @@ form {
   gap: 12px;
   max-width: 400px;
 }
+form#news-signup {margin: var(--grid-gutter) 0;}
 footer form {
   font-size: var(--step--1);
 }
@@ -472,3 +486,10 @@ main:has(aside) {
 .person-social a:hover {
   background: var(--yellow);
 }
+.events-past {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: var(--grid-gutter);
+  margin-top: var(--grid-gutter);
+}
+.events-past .event, .events-past h3, .events-past ul, .events-past .date { margin: 0 }
