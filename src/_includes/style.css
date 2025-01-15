@@ -9,8 +9,8 @@
   --primary-color: var(--red);
 
   /* FONTS */
-  --font-display: "League Gothic", serif;
-  --font-body: "Cormorant Garamond", serif;
+  --font-display: "League Gothic", 'Adjusted Arial Narrow League Fallback', 'Arial Narrow', Arial, serif;
+  --font-body: "Cormorant Garamond", 'Adjusted Times New Roman Fallback', 'Times New Roman', serif;
   --font-byline: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 
   /* TYPOGRAPHY SCALES */
@@ -55,6 +55,57 @@
   --grid-max-width: 77.50rem;
   --grid-gutter: var(--space-s-l, clamp(1rem, 0.4783rem + 2.6087vw, 2.5rem));
   --grid-columns: 12;
+}
+
+/* cormorant-garamond-regular - latin */
+@font-face {
+  font-display: fallback;
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/cormorant-garamond-v16-latin-regular.woff2') format('woff2');
+}
+/* cormorant-garamond-italic - latin */
+@font-face {
+  font-display: fallback;
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/fonts/cormorant-garamond-v16-latin-italic.woff2') format('woff2');
+}
+/* cormorant-garamond-700 - latin */
+@font-face {
+  font-display: fallback;
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/cormorant-garamond-v16-latin-700.woff2') format('woff2');
+}
+/* league-gothic-regular - latin */
+@font-face {
+  font-display: fallback;
+  font-family: 'League Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/league-gothic-v11-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Adjusted Arial Narrow League Fallback';
+  src: local(Arial Narrow);
+  size-adjust: 71%;
+  ascent-override: normal;
+  descent-override: normal;
+  line-gap-override: 54%;
+}
+
+@font-face {
+  font-family: 'Adjusted Times New Roman Fallback';
+  src: local(Times New Roman);
+  size-adjust: 97%;
+  ascent-override: 94%;
+  descent-override: normal;
+  line-gap-override: 10%;
 }
 
 /* RESET */
@@ -121,12 +172,18 @@ a.button {
   background: var(--charcoal);
   box-shadow: 0 3px 6px rgba(0,0,0,.15),0 2px 4px rgba(0,0,0,.12);
   color: #FFF;
+  font-family: var(--font-byline);
+  font-size: var(--step--1);
+  line-height: normal;
   padding: 4px 12px;
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: 6px;
   text-decoration: none;
   text-transform: uppercase;
+}
+a.button img {
+  width: 12px;
 }
 a:has(svg) {
   display: inline-flex;
@@ -211,7 +268,7 @@ header {text-align: center;}
 nav {
   border-top: 1px solid var(--charcoal);
   border-bottom: 3px double var(--charcoal);
-  font-family: "League Gothic", sans-serif;
+  font-family: var(--font-display);
   margin: 0 !important;
   text-transform: uppercase;
 }

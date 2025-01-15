@@ -26,29 +26,20 @@ const getSpeakers = (data, talkSpeakers) => {
 
 module.exports = {
 	events: (data) => {
-    const publishedEvents = data.rawEvents.filter(event => event.content.published)
-
-    const mungedEvents = publishedEvents.map(event => {
+    const mungedEvents = data.rawEvents.map(event => {
       const talks = getTalks(data, event.content.talks)
 
       // Need to force UTC time parsing for the event start time
       const date = new Date(event.content.start_time + 'Z')
-      // .toLocaleString([],{
-      //   day: '2-digit',
-      //   month: "short",
-      //   year: "numeric",
-      //   hour: "numeric",
-      //   minute: "numeric",
-      //   timeZoneName: "short",
-      // })
 
       return {
         ...event,
         startTimeUTC: date,
+        startTimeEST: date.toLocaleString("en-US", {timeZone: "America/New_York"}),
         talks,
       }
     })
 
-    return mungedEvents
+    return mungedEvents.toSorted((a, b) => b.startTimeUTC - a.startTimeUTC)
 	},
 };

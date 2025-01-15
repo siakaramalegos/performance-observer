@@ -23,8 +23,8 @@ module.exports = async function getEvents () {
         content {
           title
           overview
-          published
           start_time
+          join_link
           talks {
             id
           }

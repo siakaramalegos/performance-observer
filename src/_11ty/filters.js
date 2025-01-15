@@ -4,16 +4,23 @@ const md = new markdownIt({
   html: true,
 });
 
+const encodeForUrl = string => encodeURIComponent(string)
+
 const upcomingEvents = (events) => {
   return events.filter(event => {
     return new Date(event.startTimeUTC) > new Date()
-  })
+  }).reverse()
 }
 
 module.exports = {
+  calendarDescription: description => {
+    const text = `${description} See https://performanceobserver.dev for the full details!`
+    return encodeForUrl(text)
+  },
   cssmin: code => {
     return new CleanCSS({}).minify(code).styles;
   },
+  encodeForUrl,
   joinSpeakerNames: speakers => {
     if (!speakers || speakers.length === 0) { return '' }
     return speakers.map(speaker => speaker.content.name).join(' and ')
@@ -28,7 +35,7 @@ module.exports = {
   pastEvents: events => {
     return events.filter(event => {
       return new Date(event.startTimeUTC) < new Date()
-    }).reverse()
+    })
   },
   readableDate: dateObj => {
     return new Date(dateObj).toDateString()

@@ -20,7 +20,7 @@
       {{ css | cssmin | safe }}
     </style>
 
-    <!-- TODO: add social images, favicon, analytics, fonts -->
+    <!-- TODO: add social images, fonts -->
     <meta property="og:description" content="{{ renderDescription }}">
     <!-- <meta property="og:url" content="https://sia.studio{{ page.url }}"> -->
     <meta property="og:title" content="{{ renderTitle }}">
@@ -35,9 +35,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
     <link rel="manifest" href="/images/favicons/site.webmanifest">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=League+Gothic&display=swap" rel="stylesheet">
+    <link rel="preload" href="/fonts/cormorant-garamond-v16-latin-regular.woff2" as="font" type="font/woff2" crossorigin importance="high">
+    <link rel="preload" href="/fonts/league-gothic-v11-latin-regular.woff2" as="font" type="font/woff2" crossorigin importance="high">
   </head>
   <body>
     <header class="u-container">
@@ -60,7 +59,7 @@
         <ul role="list">
           <li><a aria-current="{% if page.url == '/' %}page{% else %}false{% endif %}" href="/">Home</a></li>
           <li><a aria-current="{% if page.url == '/events/' %}page{% else %}false{% endif %}" href="/events/">Events</a></li>
-          <li><a aria-current="{% if page.url == '/contact/' %}page{% else %}false{% endif %}" href="/contact/">Contact</a></li>
+          <li><a aria-current="{% if page.url == '/talks/' %}page{% else %}false{% endif %}" href="/talks/">Talks</a></li>
           <li><a aria-current="{% if page.url == '/codeofconduct/' %}page{% else %}false{% endif %}" href="/codeofconduct/">Code of Conduct</a></li>
         </ul>
       </nav>
@@ -78,7 +77,9 @@
             <ul role="list">
               <li><a href="/">Home</a></li>
               <li><a href="/events/">Events</a></li>
-              <li><a href="/contact/">Contact</a></li>
+              <li><a href="/codeofconduct/">Code of Conduct</a></li>
+              <li>Contact: <a href="mailto:info@performanceobserver.dev">info@performanceobserver.dev</a></li>
+
               <!-- <li>
                 <a href="https://www.instagram.com/sia.karamalegos/">
                   <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>

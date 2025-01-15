@@ -1,4 +1,8 @@
 {% set dateTime = event.startTimeUTC %}
+{% set calTitle = event.content.title | encodeForUrl %}
+{% set calDescription = event.content.overview | calendarDescription %}
+{% set calStartTime = event.startTimeEST | encodeForUrl %}
+{% set calJoinLink = event.content.join_link | encodeForUrl %}
 
 <article class="event flow {% if page.url == '/' %}no-side-borders{% endif %}">
   {% if starting_h_level == 'h3' %}
@@ -8,6 +12,21 @@
   {% endif %}
   <p class="date"><time datetime="{{dateTime}}">{{ dateTime | readableDateTime }}</time></p>
   <p>{{ event.content.overview | safe }}</p>
+  <p>Add to Calendar:</p>
+  <div class="calendar-links">
+    <a href="https://calndr.link/d/event/?service=google&start={{ calStartTime }}&title={{ calTitle }}&timezone=America%2FNew_York&location={{ calJoinLink }}&description={{ calDescription }}" rel="nofollow" class="button" target="_blank">
+      <img src="/images/calendar_add.svg" alt="calendar" height="16" width="16">
+      Google
+    </a>
+    <a href="https://calndr.link/d/event/?service=apple&start={{ calStartTime }}&title={{ calTitle }}&timezone=America%2FNew_York&location={{ calJoinLink }}&description={{ calDescription }}" rel="nofollow" class="button" target="_blank">
+      <img src="/images/calendar_add.svg" alt="calendar" height="16" width="16">
+      Apple
+    </a>
+    <a href="https://calndr.link/d/event/?service=outlookcom&start={{ calStartTime }}&title={{ calTitle }}&timezone=America%2FNew_York&location={{ calJoinLink }}&description={{ calDescription }}" rel="nofollow" class="button" target="_blank">
+      <img src="/images/calendar_add.svg" alt="calendar" height="16" width="16">
+      Outlook
+    </a>
+  </div>
   <div class="talk-cards">
     {% for talk in event.talks %}
       <article>
