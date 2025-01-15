@@ -100,9 +100,9 @@ small {font-size: var(--step--1);}
   font-family: var(--font-byline);
   text-transform: uppercase;
 }
-h1, .header-title .h1 { font-size: var(--step-6); }
-h2 { font-size: var(--step-4); }
-h3 { font-size: var(--step-3); }
+h1, .h1 { font-size: var(--step-6); }
+h2, .h2 { font-size: var(--step-4); }
+h3, .h3 { font-size: var(--step-3); }
 h4 { font-size: var(--step-2); }
 :focus {
   outline: 2px dashed var(--yellow);
@@ -352,7 +352,12 @@ main:has(aside) {
     padding: var(--grid-gutter);
   }
 }
-.event h2 {
+.event.no-side-borders {
+  border: none;
+  border-top: 3px double var(--charcoal);
+  padding: var(--grid-gutter) calc(var(--grid-gutter) / 2) var(--grid-gutter) 0;
+}
+.event h2, .event .h2 {
   margin-top: 0;
 }
 .talk-cards {
@@ -361,6 +366,7 @@ main:has(aside) {
   grid-template-columns: repeat(auto-fit, minmax(290px,1fr));
   gap: var(--grid-gutter);
 }
+.talk-cards article { max-width: 520px;}
 .person-card { container-type: inline-size; }
 .person-grid {
   border-bottom: 1px solid var(--charcoal);

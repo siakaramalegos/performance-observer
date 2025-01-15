@@ -1,14 +1,22 @@
 {% set dateTime = event.startTimeUTC %}
-{{ dateTime | log }}
-<article class="event flow">
-  <h2>{{ event.content.title }}</h2>
+
+<article class="event flow {% if page.url == '/' %}no-side-borders{% endif %}">
+  {% if starting_h_level == 'h3' %}
+    <h3 class="h2">{{ event.content.title }}</h3>
+  {% else %}
+    <h2>{{ event.content.title }}</h2>
+  {% endif %}
   <p class="date"><time datetime="{{dateTime}}">{{ dateTime | readableDateTime }}</time></p>
   <p>{{ event.content.overview | safe }}</p>
   <div class="talk-cards">
     {% for talk in event.talks %}
       <article>
         <div class="talk-card">
-          <h4>{{ talk.content.title }}</h4>
+          {% if starting_h_level == 'h3' %}
+            <h4>{{ talk.content.title }}</h4>
+          {% else %}
+            <h3>{{ talk.content.title }}</h3>
+          {% endif %}
           {{ talk.content.description | markdown | safe }}
         </div>
 
