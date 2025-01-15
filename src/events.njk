@@ -6,7 +6,6 @@ description: See upcoming and past virtual meetup events for the PerformanceObse
 
 <h1>Events</h1>
 
-<h2>Upcoming Events</h2>
 {% set upcomingEvents = events | upcomingEvents %}
 {% if upcomingEvents and upcomingEvents.length > 0 %}
   {% for event in upcomingEvents %}

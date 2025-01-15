@@ -6,8 +6,8 @@ const md = new markdownIt({
 
 const upcomingEvents = (events) => {
   return events.filter(event => {
-    return new Date(event.content.start_time) > new Date()
-  }).reverse()
+    return new Date(event.startTimeUTC) > new Date()
+  })
 }
 
 module.exports = {
@@ -16,8 +16,6 @@ module.exports = {
   },
   joinSpeakerNames: speakers => {
     if (!speakers || speakers.length === 0) { return '' }
-    console.log(speakers);
-
     return speakers.map(speaker => speaker.content.name).join(' and ')
   },
   markdown: content => {
@@ -29,8 +27,8 @@ module.exports = {
   },
   pastEvents: events => {
     return events.filter(event => {
-      return new Date(event.content.start_time) < new Date()
-    })
+      return new Date(event.startTimeUTC) < new Date()
+    }).reverse()
   },
   readableDate: dateObj => {
     return new Date(dateObj).toDateString()

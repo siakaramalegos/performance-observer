@@ -1,8 +1,8 @@
-{% set dateTime = event.content.start_time %}
-
+{% set dateTime = event.startTimeUTC %}
+{{ dateTime | log }}
 <article class="event flow">
-  <h3>{{ event.content.title }}</h3>
-  <p class="date"><time datetime="{{dateTime}}">{{dateTime | readableDateTime}}</time></p>
+  <h2>{{ event.content.title }}</h2>
+  <p class="date"><time datetime="{{dateTime}}">{{ dateTime | readableDateTime }}</time></p>
   <p>{{ event.content.overview | safe }}</p>
   <div class="talk-cards">
     {% for talk in event.talks %}

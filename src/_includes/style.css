@@ -352,7 +352,7 @@ main:has(aside) {
     padding: var(--grid-gutter);
   }
 }
-.event h3 {
+.event h2 {
   margin-top: 0;
 }
 .talk-cards {
