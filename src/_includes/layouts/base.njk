@@ -11,7 +11,7 @@
     {% set renderDescription = renderData.description or description %}
     <title>{{ renderTitle }}</title>
     <meta name="description" content="{{ renderDescription }}">
-    <!-- <link rel="canonical" href="https://sia.studio{{ page.url }}"> -->
+    <link rel="canonical" href="https://performanceobserver.dev{{ page.url }}">
 
     {% set css %}
       {% include "style.css" %}
@@ -20,7 +20,7 @@
       {{ css | cssmin | safe }}
     </style>
 
-    <!-- TODO: add social images, fonts -->
+    <!-- TODO: add social images -->
     <meta property="og:description" content="{{ renderDescription }}">
     <!-- <meta property="og:url" content="https://sia.studio{{ page.url }}"> -->
     <meta property="og:title" content="{{ renderTitle }}">

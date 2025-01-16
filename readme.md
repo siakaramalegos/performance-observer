@@ -5,15 +5,17 @@ Built with 11ty
 TODO
 
 - [ ] check accessibility
-- [ ] fix title and description tags
+- [ ] fix title and description tags - I think this is done, just need to double check
 - [ ] check technical seo
-- [ ] add youtube, newsletter, other? links to footer
-- [ ] add events page, then individual talk pages (not events like 11ty meetup? - decide on this - could eventually add speaker pages)
 - [ ] add cfp instructions
-- [ ] create social accounts?
 - [ ] add social share images
 - [ ] modify organizers content to use speaker content stuff (image, styles, links)
 - [ ] 404 page
+
+Can be done after the first meetup:
+
+- [ ] add talks page, then individual talk pages (not events like 11ty meetup? - decide on this - could eventually add speaker pages)
+- [ ] create social accounts? (and add to footer)
 
 ## Calendar links
 
