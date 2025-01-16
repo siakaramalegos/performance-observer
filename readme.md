@@ -7,10 +7,8 @@ TODO
 - [ ] check accessibility
 - [ ] fix title and description tags - I think this is done, just need to double check
 - [ ] check technical seo
-- [ ] add cfp instructions
 - [ ] add social share images
-- [ ] modify organizers content to use speaker content stuff (image, styles, links)
-- [ ] 404 page
+- [ ] Hook up live domain and add webhook to Storyblok
 
 Can be done after the first meetup:
 

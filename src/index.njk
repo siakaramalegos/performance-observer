@@ -42,8 +42,12 @@ renderData:
   <h3>How do I register?</h3>
   <p>You don't! We simplified the idea of the meetup since we weren't interested in collecting registration data. Instead, we share the zoom link via the calendar event which is available on this website and in emails from our <a href="#news-signup">newsletter</a>.</p>
   <h3>About the organizers</h3>
-  <p><strong>Estela Franco</strong> is a Web Performance and Technical SEO Specialist. She works as a Web Performance Technical Architect at Shopify and is a Google Developer Expert in Web Technologies and Storyblok Ambassador.</p>
-  <p><strong>Sia Karamalegos</strong> is a freelance web developer and performance engineer. She's also an international conference speaker, writer, and Google Developer Expert in Web Technologies. She co-organizes PerformanceObserver as well as the Eleventy Meetup.</p>
+  {% set organizers = people | getOrganizers %}
+  {% for person in organizers %}
+    <div class="headshot" style="background: url('{{ person.content.headshot.filename }}/m/240x240') center / cover , radial-gradient(circle, var(--charcoal), var(--newsprint)) 0 0 / 2px 2px space;;">
+    </div>
+    <p><strong><a href="{{ person.content.website }}">{{ person.content.name }}</a></strong> {{ person.content.short_bio }}</p>
+  {% endfor %}
 </aside>
 
 <script>

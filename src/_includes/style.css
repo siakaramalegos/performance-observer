@@ -333,6 +333,7 @@ footer li {
   inset: 0;
   background: url('/images/coffee-ring-2.png') right bottom / 200px no-repeat;
   filter: opacity(20%);
+  z-index: -1;
 }
 .border-double-top {
   border-top: 3px double var(--charcoal);
@@ -459,7 +460,7 @@ main:has(aside) {
 .person-grid p {
   margin-top: 0;
 }
-.person-card .headshot {
+.headshot {
   aspect-ratio: 1;
   border-radius: 50%;
   position: relative;
@@ -468,6 +469,10 @@ main:has(aside) {
   overflow: hidden;
   position: relative;
   background-blend-mode: screen;
+}
+aside .headshot {
+  margin: var(--grid-gutter) auto 0;
+  width: 80px;
 }
 .person-social {
   display: flex;

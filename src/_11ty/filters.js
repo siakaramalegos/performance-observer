@@ -32,6 +32,7 @@ module.exports = {
     const filteredEvents = upcomingEvents(events)
     return filteredEvents.length > 0 ? filteredEvents[0].data.event : null
   },
+  getOrganizers: people => people.filter(person => person.content.organizer),
   pastEvents: events => {
     return events.filter(event => {
       return new Date(event.startTimeUTC) < new Date()
