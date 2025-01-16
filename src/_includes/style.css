@@ -339,6 +339,7 @@ footer li {
   border-top: 3px double var(--charcoal);
   padding-top: var(--grid-gutter);
 }
+.sponsor img { width: 400px;}
 
 /* FORM */
 form {
