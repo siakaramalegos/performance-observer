@@ -18,6 +18,7 @@ We also want to encourage more people to speak, especially (but not only) underr
 Information about speaking at the meetup:
 
 - The meetup is 1 hour long and usually has 2 talks. It's important that you keep your talk length at 20-25 minutes.
+- Topics should be about web performance or web-performance-adjacent. We'll curate a variety of talk levels, though narrower scope works better with this crowd and format. Since we don't have enough talk examples yet on this site, check out [performance.now()](https://www.youtube.com/@WebConferencesAmsterdam) and [We Love Speed](https://www.welovespeed.com/en/2024/speakers/) to get an idea of what might work.
 - This is a virtual meetup held over Zoom. Make sure that your audio, video, and screen sharing all work correctly before the event. You can request a tech check if you like.
 - By default, we record all talks and post them on YouTube. However, you have the ultimate decision on whether it's okay for us to post it. You can decide after the meetup.
 - The CFP form is purposely short and informal. If we confirm you as a speaker, then we will give you a separate form for your details to post on the website.
