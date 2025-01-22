@@ -14,7 +14,7 @@ const upcomingEvents = (events) => {
 
 module.exports = {
   calendarDescription: description => {
-    const text = `${description} See https://performanceobserver.dev for the full details!`
+    const text = `${description} See https://performanceobserver.dev for the full details! If the zoom meeting is full, check our YouTube channel for a simultaneous livestream: https://www.youtube.com/@PerformanceObserver`
     return encodeForUrl(text)
   },
   cssmin: code => {

@@ -4,9 +4,10 @@ title: Events
 description: See upcoming and past virtual meetup events for the PerformanceObserver web performance meetup.
 ---
 
+<div class="coffee-container">
+
 <h1>Events</h1>
 
-<div class="coffee-container">
 {% set upcomingEvents = events | upcomingEvents %}
 {% if upcomingEvents and upcomingEvents.length > 0 %}
   {% for event in upcomingEvents %}

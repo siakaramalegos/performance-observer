@@ -8,6 +8,7 @@ TODO
 - [ ] fix title and description tags - I think this is done, just need to double check
 - [ ] check technical seo
 - [ ] Hook up live domain and add webhook to Storyblok
+- [ ] Add RSS feed
 
 Can be done after the first meetup:
 
