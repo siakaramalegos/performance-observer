@@ -439,7 +439,8 @@ main:has(aside) {
   grid-template-columns: repeat(auto-fit, minmax(290px,1fr));
   gap: var(--grid-gutter);
 }
-.talk-cards article { max-width: 520px;}
+.talk-cards article { max-width: 520px; padding-top: var(--grid-gutter);}
+.talk-cards h2, .talk-cards h3, .talk-cards h4 { margin-top: 0; }
 .person-card { container-type: inline-size; }
 .person-grid {
   border-bottom: 1px solid var(--charcoal);

@@ -20,6 +20,7 @@ module.exports = {
   cssmin: code => {
     return new CleanCSS({}).minify(code).styles;
   },
+  dateIsUpcoming: date => new Date(date) > new Date(),
   encodeForUrl,
   joinSpeakerNames: speakers => {
     if (!speakers || speakers.length === 0) { return '' }

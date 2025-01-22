@@ -1,38 +1,47 @@
 {% set dateTime = event.startTimeUTC %}
-{% set calTitle = event.content.title | encodeForUrl %}
-{% set calDescription = event.content.overview | calendarDescription %}
-{% set calStartTime = event.startTimeEST | encodeForUrl %}
-{% set calJoinLink = event.content.join_link | encodeForUrl %}
+{% set isUpcoming = dateTime | dateIsUpcoming %}
 
 <article class="event flow {% if page.url == '/' %}no-side-borders{% endif %}">
   {% if starting_h_level == 'h3' %}
-    <h3 class="h2">{{ event.content.title }}</h3>
+    <h3 class="h2"><a href="/events/{{ event.slug }}/">{{ event.content.title }}</a></h3>
+  {% elif starting_h_level == 'h1' %}
+    <h1 class="h2">{{ event.content.title }}</h1>
   {% else %}
-    <h2>{{ event.content.title }}</h2>
+    <h2><a href="/events/{{ event.slug }}/">{{ event.content.title }}</a></h2>
   {% endif %}
   <p class="date"><time datetime="{{dateTime}}">{{ dateTime | readableDateTime }}</time></p>
   <p>{{ event.content.overview | safe }}</p>
-  <p>Add to Calendar:</p>
-  <div class="calendar-links">
-    <a href="https://calndr.link/d/event/?service=google&start={{ calStartTime }}&title={{ calTitle }}&timezone=America%2FNew_York&location={{ calJoinLink }}&description={{ calDescription }}" rel="nofollow" class="button" target="_blank">
-      <img src="/images/calendar_add.svg" alt="calendar" height="16" width="16">
-      Google
-    </a>
-    <a href="https://calndr.link/d/event/?service=apple&start={{ calStartTime }}&title={{ calTitle }}&timezone=America%2FNew_York&location={{ calJoinLink }}&description={{ calDescription }}" rel="nofollow" class="button" target="_blank">
-      <img src="/images/calendar_add.svg" alt="calendar" height="16" width="16">
-      Apple
-    </a>
-    <a href="https://calndr.link/d/event/?service=outlookcom&start={{ calStartTime }}&title={{ calTitle }}&timezone=America%2FNew_York&location={{ calJoinLink }}&description={{ calDescription }}" rel="nofollow" class="button" target="_blank">
-      <img src="/images/calendar_add.svg" alt="calendar" height="16" width="16">
-      Outlook
-    </a>
-  </div>
+
+  {% if isUpcoming %}
+    {% set calTitle = event.content.title | encodeForUrl %}
+    {% set calDescription = event.content.overview | calendarDescription %}
+    {% set calStartTime = event.startTimeEST | encodeForUrl %}
+    {% set calJoinLink = event.content.join_link | encodeForUrl %}
+    <p>Add to Calendar:</p>
+    <div class="calendar-links">
+      <a href="https://calndr.link/d/event/?service=google&start={{ calStartTime }}&title={{ calTitle }}&timezone=America%2FNew_York&location={{ calJoinLink }}&description={{ calDescription }}" rel="nofollow" class="button" target="_blank">
+        <img src="/images/calendar_add.svg" alt="calendar" height="16" width="16">
+        Google
+      </a>
+      <a href="https://calndr.link/d/event/?service=apple&start={{ calStartTime }}&title={{ calTitle }}&timezone=America%2FNew_York&location={{ calJoinLink }}&description={{ calDescription }}" rel="nofollow" class="button" target="_blank">
+        <img src="/images/calendar_add.svg" alt="calendar" height="16" width="16">
+        Apple
+      </a>
+      <a href="https://calndr.link/d/event/?service=outlookcom&start={{ calStartTime }}&title={{ calTitle }}&timezone=America%2FNew_York&location={{ calJoinLink }}&description={{ calDescription }}" rel="nofollow" class="button" target="_blank">
+        <img src="/images/calendar_add.svg" alt="calendar" height="16" width="16">
+        Outlook
+      </a>
+    </div>
+  {% endif %}
+
   <div class="talk-cards">
     {% for talk in event.talks %}
       <article>
         <div class="talk-card">
           {% if starting_h_level == 'h3' %}
             <h4>{{ talk.content.title }}</h4>
+          {% elif starting_h_level == 'h1' %}
+            <h2 class="h3">{{ talk.content.title }}</h2>
           {% else %}
             <h3>{{ talk.content.title }}</h3>
           {% endif %}

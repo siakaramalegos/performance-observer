@@ -8,7 +8,7 @@ description: See upcoming and past virtual meetup events for the PerformanceObse
 
 <h1>Events</h1>
 
-{% set upcomingEvents = events | upcomingEvents %}
+{% set upcomingEvents = cms.events | upcomingEvents %}
 {% if upcomingEvents and upcomingEvents.length > 0 %}
   {% for event in upcomingEvents %}
     {% include 'upcomingEvent.njk' %}
@@ -18,7 +18,7 @@ description: See upcoming and past virtual meetup events for the PerformanceObse
 {% endif %}
 </div>
 
-{% set oldEvents = events | pastEvents %}
+{% set oldEvents = cms.events | pastEvents %}
 {% if oldEvents and oldEvents.length > 0 %}
   <h2>Past Events</h2>
   <div class="events-past">

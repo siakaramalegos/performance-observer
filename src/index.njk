@@ -7,7 +7,8 @@ renderData:
 
 <section>
   <h2 class="h1">Upcoming events</h2>
-  {% set upcomingEvents = events | upcomingEvents %}
+
+  {% set upcomingEvents = cms.events | upcomingEvents %}
   {% set starting_h_level = 'h3' %}
   {% if upcomingEvents and upcomingEvents.length > 0 %}
     {% for event in upcomingEvents %}
@@ -45,7 +46,7 @@ renderData:
   <h3>How do I register?</h3>
   <p>You don't! We simplified the idea of the meetup since we weren't interested in collecting registration data. Instead, we share the zoom link via the calendar event which is available on this website and in emails from our <a href="#news-signup">newsletter</a>.</p>
   <h3>About the organizers</h3>
-  {% set organizers = people | getOrganizers %}
+  {% set organizers = cms.people | getOrganizers %}
   {% for person in organizers %}
     <div class="headshot" style="background: url('{{ person.content.headshot.filename }}/m/240x240') center / cover , radial-gradient(circle, var(--charcoal), var(--newsprint)) 0 0 / 2px 2px space;;">
     </div>

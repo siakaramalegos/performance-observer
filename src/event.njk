@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+tags:
+  - eventPages
+pagination:
+  alias: event
+  data: cms.events
+  size: 1
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "{{ event.content.title | safe }}"
+  description: "{{ event.content.description | safe }}"
+  descriptionIsHtml: true
+permalink: "events/{{ event.slug }}/index.html"
+---
+
+{% set starting_h_level = 'h1' %}
+{% include 'upcomingEvent.njk' %}
