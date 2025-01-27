@@ -33,7 +33,7 @@ metadata:
         <p>Date: <time datetime="{{ event.startTimeUTC }}">{{ event.startTimeUTC | readableDateTime }}</time>. </p>
         <p><a href="{{ metadata.base }}events/{{ event.slug }}/">Full details and calendar links at PerformanceObserver.dev</a></p>
       {% endset %}
-      {{ content | escapeXml }}
+      {{ content | renderTransforms }}
     </content>
   </entry>
   {%- endfor %}
