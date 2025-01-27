@@ -48,6 +48,8 @@ const EVENTS_QUERY = `
     items {
       id
       slug
+      first_published_at
+      published_at
       content {
         title
         overview

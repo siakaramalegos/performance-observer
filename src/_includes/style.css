@@ -185,7 +185,7 @@ a.button {
 a.button img {
   width: 12px;
 }
-a:has(svg) {
+a:has(svg), a:has(img) {
   display: inline-flex;
   align-items: center;
   gap: 8px;

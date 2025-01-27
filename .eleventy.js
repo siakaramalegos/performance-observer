@@ -1,4 +1,5 @@
 const fs = require("fs");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 const filters = require('./src/_11ty/filters');
 const shortcodes = require('./src/_11ty/shortcodes');
 
@@ -14,7 +15,7 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.setDataDeepMerge(true);
-
+  eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/fonts");
 

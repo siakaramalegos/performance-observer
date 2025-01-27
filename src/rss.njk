@@ -1,0 +1,45 @@
+---
+permalink: feed.xml
+eleventyExcludeFromCollections: true
+metadata:
+  title: PerformanceObserver
+  description: A virtual meetup for the web performance community
+  language: en
+  base: https://performanceobserver.dev/
+  author:
+    name: PerformanceObserver
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ metadata.language or page.lang }}">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.description }}</subtitle>
+  <link href="{{ permalink | htmlBaseUrl(metadata.base) }}" rel="self" />
+  <link href="{{ metadata.base | addPathPrefixToFullUrl }}" />
+  <updated>{{ cms.events | getMostRecentlyUpdatedDate | dateToRfc3339 }}</updated>
+  <id>{{ metadata.base | addPathPrefixToFullUrl }}</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+  </author>
+  <image>
+		<url>{{ metadata.base }}images/favicons/android-chrome-192x192.png</url>
+		<title>{{ metadata.title }}</title>
+    <subtitle>{{ metadata.description }}</subtitle>
+		<link href="{{ metadata.base }}"/>
+		<width>192</width>
+		<height>192</height>
+	</image>
+  {%- for event in cms.events | reverse %}
+  <entry>
+    <title>{{ event.content.title }}</title>
+    <link href="{{ metadata.base }}events/{{ event.slug }}/" />
+    <updated>{{ event.published_at | toDate | dateToRfc3339 }}</updated>
+    <id>{{ metadata.base }}events/{{ event.slug }}/</id>
+    <content type="html">
+      <h1>{{ event.content.title }}</h1>
+      <p>{{ event.content.overview }}</p>
+      <p class="date"><time datetime="{{ event.startTimeUTC }}">{{ event.startTimeUTC | readableDateTime }}</time></p>
+      <p><a href="{{ metadata.base }}events/{{ event.slug }}/">Full details and calendar links...</a></p>
+    </content>
+  </entry>
+  {%- endfor %}
+</feed>
