@@ -25,13 +25,13 @@ metadata:
   <entry>
     <title>{{ event.content.title }}</title>
     <link href="{{ metadata.base }}events/{{ event.slug }}/" />
-    <updated>{{ event.published_at | toDate | dateToRfc3339 }}</updated>
+    <updated>{{ event.first_published_at | toDate | dateToRfc3339 }}</updated>
     <id>{{ metadata.base }}events/{{ event.slug }}/</id>
     <content type="html">
       {% set content %}
-        <p>{{ event.content.overview }}</p>
-        <p class="date"><time datetime="{{ event.startTimeUTC }}">{{ event.startTimeUTC | readableDateTime }}</time></p>
-        <p><a href="{{ metadata.base }}events/{{ event.slug }}/">Full details and calendar links...</a></p>
+        <p>{{ event.content.overview }} </p>
+        <p>Date: <time datetime="{{ event.startTimeUTC }}">{{ event.startTimeUTC | readableDateTime }}</time>. </p>
+        <p><a href="{{ metadata.base }}events/{{ event.slug }}/">Full details and calendar links at PerformanceObserver.dev</a></p>
       {% endset %}
       {{ content | escapeXml }}
     </content>
