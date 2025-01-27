@@ -20,14 +20,7 @@ metadata:
   <author>
     <name>{{ metadata.author.name }}</name>
   </author>
-  <image>
-		<url>{{ metadata.base }}images/favicons/android-chrome-192x192.png</url>
-		<title>{{ metadata.title }}</title>
-    <subtitle>{{ metadata.description }}</subtitle>
-		<link href="{{ metadata.base }}"/>
-		<width>192</width>
-		<height>192</height>
-	</image>
+  <icon>{{ metadata.base }}images/favicons/android-chrome-192x192.png</icon>
   {%- for event in cms.events | reverse %}
   <entry>
     <title>{{ event.content.title }}</title>
