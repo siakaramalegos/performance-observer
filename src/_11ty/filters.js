@@ -24,6 +24,18 @@ const getMostRecentlyUpdatedDate = (events) => {
   return new Date(lastUpdated.published_at)
 }
 
+function escapeXml(unsafe) {
+  return unsafe.replace(/[<>&'"]/g, function (c) {
+      switch (c) {
+          case '<': return '&lt;';
+          case '>': return '&gt;';
+          case '&': return '&amp;';
+          case '\'': return '&apos;';
+          case '"': return '&quot;';
+      }
+  });
+}
+
 module.exports = {
   calendarDescription: description => {
     const text = `${description} See https://performanceobserver.dev for the full details! If the zoom meeting is full, check our YouTube channel for a simultaneous livestream: https://www.youtube.com/@PerformanceObserver`
@@ -34,6 +46,7 @@ module.exports = {
   },
   dateIsUpcoming: date => new Date(date) > new Date(),
   encodeForUrl,
+  escapeXml,
   getMostRecentlyUpdatedDate,
   getOrganizers: people => people.filter(person => person.content.organizer),
   getTalkById: (talks, talkId) => {
