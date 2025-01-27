@@ -36,7 +36,6 @@ metadata:
     <id>{{ metadata.base }}events/{{ event.slug }}/</id>
     <content type="html">
       {% set content %}
-        <h1>{{ event.content.title }}</h1>
         <p>{{ event.content.overview }}</p>
         <p class="date"><time datetime="{{ event.startTimeUTC }}">{{ event.startTimeUTC | readableDateTime }}</time></p>
         <p><a href="{{ metadata.base }}events/{{ event.slug }}/">Full details and calendar links...</a></p>
