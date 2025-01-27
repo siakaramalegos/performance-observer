@@ -9,7 +9,7 @@ pagination:
   addAllPagesToCollections: true
 eleventyComputed:
   title: "{{ event.content.title | safe }}"
-  description: "{{ event.content.description | safe }}"
+  description: "{{ event.content.overview | safe }}"
   descriptionIsHtml: true
 permalink: "events/{{ event.slug }}/index.html"
 ---
