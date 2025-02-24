@@ -1,0 +1,50 @@
+<h1>{{ talk.content.title }}</h1>
+<p class="date"><time datetime="{{ talk.event.startTimeUTC }}">{{ talk.event.startTimeUTC | readableDateTime }}</time> (see <a href="/events/{{ talk.event.slug }}">full event</a>)</p>
+{{ talk.content.description | markdown | safe }}
+
+{% if talk.content.youtube_id != '' %}
+  <script src="/scripts/lite-yt-embed.js"></script>
+  <lite-youtube videoid="{{ talk.content.youtube_id }}" style="background-image: url('https://i.ytimg.com/vi/{{ talk.content.youtube_id }}/hqdefault.jpg');">
+    <button type="button" class="lty-playbtn">
+      <span class="lyt-visually-hidden">Play Video: {{ talk.content.title }}</span>
+    </button>
+  </lite-youtube>
+{% endif %}
+
+{% for speaker in talk.speakers %}
+  <div class="person-card">
+    <div class="person-grid">
+      <div class="headshot" style="background: url('{{ speaker.content.headshot.filename }}/m/240x240') center / cover , radial-gradient(circle, var(--charcoal), var(--newsprint)) 0 0 / 2px 2px space;;">
+      </div>
+      <div>
+        <p><strong>{{ speaker.content.name }}</strong>{% if speaker.content.pronouns %} ({{ speaker.content.pronouns }}){% endif %} {{ speaker.content.short_bio }}</p>
+      </div>
+    </div>
+    <p class="person-social">
+      {% if speaker.content.website %}
+      <a rel="nofollow" href="{{ speaker.content.website }}">
+        <img src="/images/website.svg" loading="lazy" alt="" height="16" width="16">
+        Website
+      </a>
+      {% endif %}
+      {% if speaker.content.mastodon %}
+        <a rel="nofollow" href="{{ speaker.content.mastodon }}">
+        <img src="/images/mastodon.svg" loading="lazy" alt="" height="16" width="16">
+          Mastodon
+        </a>
+      {% endif %}
+      {% if speaker.content.bluesky %}
+        <a rel="nofollow" href="{{ speaker.content.bluesky }}">
+        <img src="/images/bluesky.svg" loading="lazy" alt="" height="16" width="16">
+          BlueSky
+        </a>
+      {% endif %}
+      {% if speaker.content.linkedin %}
+        <a rel="nofollow" href="{{ speaker.content.linkedin }}">
+          <img src="/images/linkedin.svg" loading="lazy" alt="" height="16" width="16">
+          LinkedIn
+        </a>
+      {% endif %}
+    </p>
+  </div>
+{% endfor %}

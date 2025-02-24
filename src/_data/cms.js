@@ -33,11 +33,11 @@ module.exports = async function getEvents () {
   const [eventData, talksData, peopleData] = await Promise.all([fetchAPI(EVENTS_QUERY), fetchAPI(TALKS_QUERY), fetchAPI(PEOPLE_QUERY)]);
 
   const rawEvents = eventData?.EventItems.items;
-  const talks = talksData?.TalkItems.items;
+  const rawTalks = talksData?.TalkItems.items;
   const people = peopleData?.PersonItems.items;
 
   const mungedEvents = rawEvents.map(event => {
-    const eventTalks = getTalks(talks, event.content.talks, people)
+    const eventTalks = getTalks(rawTalks, event.content.talks, people)
 
     // Need to force UTC time parsing for the event start time
     const date = new Date(event.content.start_time + 'Z')
@@ -49,6 +49,22 @@ module.exports = async function getEvents () {
       talks: eventTalks,
     }
   })
+
+  const talks = []
+
+  mungedEvents.forEach(event => {
+    event.talks.forEach(talk => {
+      talks.push({
+        ...talk,
+        event: {
+          slug: event.slug,
+          startTimeUTC: event.startTimeUTC,
+          startTimeEST: event.startTimeEST,
+          title: event.content.title,
+        }
+      })
+    })
+  });
 
   return {
     events: mungedEvents.sort((a, b) => b.startTimeUTC - a.startTimeUTC),

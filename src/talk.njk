@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+tags:
+  - talkPages
+pagination:
+  alias: talk
+  data: cms.talks
+  size: 1
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "{{ talk.content.title | safe }}"
+  description: "{{ talk.content.description | safe }}"
+  descriptionIsHtml: true
+permalink: "talks/{{ talk.slug }}/index.html"
+---
+
+{% include 'talk.njk' %}

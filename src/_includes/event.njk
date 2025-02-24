@@ -1,12 +1,12 @@
 {% set dateTime = event.startTimeUTC %}
 
 <article class="event flow">
-  <h3>{{ event.content.title }}</h3>
+  <h3><a href="/events/{{ event.slug }}/">{{ event.content.title }}</a></h3>
   <p class="date"><time datetime="{{dateTime}}">{{dateTime | readableDateTime}}</time></p>
   <p>{{ event.content.overview | safe }}</p>
   <ul>
     {% for talk in event.talks %}
-      <li><a href="/talks/{{ talk.slug}}/"><strong>{{ talk.content.title }}</strong> by {{ talk.speakers | joinSpeakerNames }}</a></li>
+      <li><a href="/talks/{{ talk.slug }}/"><strong>{{ talk.content.title }}</strong> by {{ talk.speakers | joinSpeakerNames }}</a></li>
     {% endfor %}
   </ul>
 </article>
